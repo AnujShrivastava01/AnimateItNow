@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimateItNow - CSS Animation Templates & Effects</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+     </head>
+
+<body data-theme="light">
+  <div id="navbar"></div>
+
+  <script>
+    fetch('nav.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+        // Load the navbar theme manager script
+        const script = document.createElement('script');
+        script.src = 'navbar-theme.js';
+        document.head.appendChild(script);
+      })
+      .catch(err => console.error('Error loading navbar:', err));
+  </script>
+
+    <div class="fluid-background-wrapper">
+      <div class="fluid-blob blob-1"></div>
+      <div class="fluid-blob blob-2"></div>
+      <div class="fluid-blob blob-3"></div>
+      <div class="fluid-blob blob-4"></div>
+    </div>
+    <div id="progress-bar"></div>
+
+<section class="hero">
+      <div class="container">
+        <h1>Create Stunning <span>CSS Animations</span></h1>
+        <p>
+          A comprehensive collection of CSS animation templates and effects for
+          web developers. Join our community to contribute, learn, and inspire
+          others!
+        </p>
+        <div class="hero-buttons">
+          <a href="templates.html" class="btn" style="text-align: center;">Explore Templates</a>
+          <a href="editor.html" class="btn btn-secondary" style="text-align: center;">Try Our Editor</a>
+        </div>
+        <div class="hero-animation"></div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why Choose AnimateItNow</h2>
+          <p>
+            Discover the features that make our platform the best choice for CSS
+            animations
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Beautiful Templates</h3>
+            <p>
+              Handcrafted animation templates designed to make your website
+              stand out.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>Easy to Use</h3>
+            <p>
+              Copy-paste ready code snippets that work seamlessly with your
+              projects.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Community Driven</h3>
+            <p>
+              Join a vibrant community of developers sharing and improving
+              animations.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Fully Responsive</h3>
+            <p>All animations are optimized to work perfectly on any device.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Lightweight</h3>
+            <p>
+              Performance-optimized animations that won't slow down your
+              website.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3>Regular Updates</h3>
+            <p>
+              New templates and improvements added regularly by our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="templates-showcase">
+      <div class="container">
+        <div class="section-title">
+          <h2>Popular Animation Templates</h2>
+          <p>
+            Explore our most loved animation templates created by the community
+          </p>
+        </div>
+
+        <div class="templates-grid">
+          <div class="template-card">
+            <div class="template-preview">
+              <i class="fas fa-spinner"></i>
+            </div>
+            <div class="template-info">
+              <h3>Loading Spinners</h3>
+              <p>10+ creative loading animations for better user experience.</p>
+              <a href="templates/LoadingSpinner.html" class="btn btn-outline"
+                >View Template</a
+              >
+            </div>
+          </div>
+
+          <div class="template-card">
+            <div class="template-preview">
+              <i class="fas fa-mouse-pointer"></i>
+            </div>
+            <div class="template-info">
+              <h3>Hover Effects</h3>
+              <p>
+                Interactive hover animations for buttons, cards, and images.
+              </p>
+              <a href="playground.html" class="btn btn-outline"
+                >View Template</a
+              >
+            </div>
+          </div>
+
+          <div class="template-card">
+            <div class="template-preview">
+              <i class="fas fa-scroll"></i>
+            </div>
+            <div class="template-info">
+              <h3>Scroll Animations</h3>
+              <p>Reveal content with beautiful scroll-triggered animations.</p>
+              <a
+                href="templates/scrollingAnimations.html"
+                class="btn btn-outline"
+                >View Template</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <a href="templates.html" class="btn">View All Templates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="container">
+        <div class="section-title">
+          <h2>How It Works</h2>
+          <p>Get started with AnimateItNow in just a few simple steps</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Browse Templates</h3>
+              <p>
+                Explore our collection of animation templates and find the
+                perfect one for your project.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Copy Code</h3>
+              <p>
+                Copy the HTML, CSS, and JavaScript code with a single click.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Implement</h3>
+              <p>
+                Paste the code into your project and customize it to fit your
+                needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently Asked Questions</h2>
+          <p>Find answers to common questions about AnimateItNow</p>
+        </div>
+
+        <div class="faq-container">
+          <div
+            class="faq-item"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="faq-answer-1"
+          >
+            <div class="faq-question">
+              <span>How can I contribute to AnimateItNow?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer" id="faq-answer-1">
+              <p>
+                Fork our repository on GitHub, add your unique animations or
+                improvements, and submit a pull request. All skill levels are
+                welcome!
+              </p>
+            </div>
+          </div>
+
+           <div
+            class="faq-item"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="faq-answer-2"
+          >
+            <div class="faq-question">
+              <span>Are the animations responsive?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer" id="faq-answer-2">
+              <p>
+                Yes, all animations are designed to be fully responsive and work
+                perfectly on all device sizes.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="faq-answer-"
+          >
+            <div class="faq-question">
+              <span>Do I need prior experience in animation?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer" id="faq-answer-3">
+              <p>
+                No prior experience is needed. Our courses are structured for beginners as well as advanced learners.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="faq-answer-3"
+          >
+            <div class="faq-question">
+              <span>Can I use these animations in commercial projects?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer" id="faq-answer-3">
+              <p>
+                Absolutely! All animations are open source and free to use in
+                personal and commercial projects.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="faq-item"
+            role="button"
+            tabindex="0"
+            aria-expanded="false"
+            aria-controls="faq-answer-4"
+          >
+            <div class="faq-question">
+              <span>How often are new templates added?</span>
+              <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer" id="faq-answer-4">
+              <p>
+                New templates are added regularly by our community of
+                contributors. Check back often for new animations!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Users Say</h2>
+          <p>
+            Hear from developers who have transformed their projects with
+            AnimateItNow
+          </p>
+        </div>
+
+        <div class="testimonial-slider">
+          <button
+            class="testimonial-arrows arrow-left"
+            aria-label="Previous testimonial"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="testimonial-carousel">
+            <div class="testimonial-card active">
+              <div class="testimonial-avatar">
+                <img src="images/amn.jpg" alt="Aman" />
+              </div>
+              <p class="testimonial-text">
+                "AnimateItNow transformed my full stack projects, making them
+                dynamic and engaging. Integrating it was effortless and truly
+                enhanced the user experience."
+              </p>
+              <div class="testimonial-author">Aman Singh</div>
+              <div class="testimonial-role">Full Stack Developer</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">
+                <img src="images/img2.jpg" alt="Sarah" />
+              </div>
+              <p class="testimonial-text">
+                "As a UI/UX designer, I love how AnimateItNow bridges the gap
+                between design and development. The animations are smooth,
+                professional, and exactly what modern websites need."
+              </p>
+              <div class="testimonial-author">Sarah Chen</div>
+              <div class="testimonial-role">UI/UX Designer</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">
+                <img src="images/img3.jpg" alt="Marcus" />
+              </div>
+              <p class="testimonial-text">
+                "The variety of animations and the ease of implementation is
+                incredible. My clients are always impressed with the interactive
+                elements I can now add to their websites."
+              </p>
+              <div class="testimonial-author">Marcus Johnson</div>
+              <div class="testimonial-role">Freelance Developer</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">
+                <img src="images/img4.jpg" alt="Priya" />
+              </div>
+              <p class="testimonial-text">
+                "AnimateItNow saved me countless hours of development time. The
+                ready-to-use templates are perfect for rapid prototyping and
+                production projects alike."
+              </p>
+              <div class="testimonial-author">Priya Sharma</div>
+              <div class="testimonial-role">Frontend Lead</div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">
+                <img src="images/img5.jpg" alt="David" />
+              </div>
+              <p class="testimonial-text">
+                "The community-driven approach and open-source nature makes this
+                platform amazing. Contributing new animations and seeing them
+                used by others is incredibly rewarding."
+              </p>
+              <div class="testimonial-author">David Rodriguez</div>
+              <div class="testimonial-role">Open Source Contributor</div>
+            </div>
+          </div>
+
+          <button
+            class="testimonial-arrows arrow-right"
+            aria-label="Next testimonial"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <div class="testimonial-nav">
+            <button
+              class="active"
+              data-slide="0"
+              aria-label="Testimonial 1"
+              title="View testimonial from Aman Singh"
+            ></button>
+            <button
+              data-slide="1"
+              aria-label="Testimonial 2"
+              title="View testimonial from Sarah Chen"
+            ></button>
+            <button
+              data-slide="2"
+              aria-label="Testimonial 3"
+              title="View testimonial from Marcus Johnson"
+            ></button>
+            <button
+              data-slide="3"
+              aria-label="Testimonial 4"
+              title="View testimonial from Priya Sharma"
+            ></button>
+            <button
+              data-slide="4"
+              aria-label="Testimonial 5"
+              title="View testimonial from David Rodriguez"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Animate Your Website?</h2>
+        <p>
+          Join thousands of developers who are already creating stunning
+          animations with AnimateItNow
+        </p>
+        <div class="cta-buttons">
+          <a href="signup.html" class="btn">Get Started Free</a>
+          <a href="templates.html" class="btn btn-outline" style="text-align: center;">Browse Templates</a>
+        </div>
+      </div>
+    </section>
+
+    
+
+          
+     <footer class="footer">
+        <div class="container">
+          <div class="footer-content">
+            <div class="footer-about">
+              <div class="footer-logo">
+                <img src="images/logo.png" alt="Website Logo" />
+                <span>AnimateItNow</span>
+              </div>
+              <p>
+                Creating impactful web animations and templates for everyone. Join
+                our community to contribute, learn, and grow together.
+              </p>
+            </div>
+
+            <div class="footer-links">
+              <h3>Quick Links</h3>
+              <ul>
+                <li>
+                  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                  <a href="templates.html"
+                    ><i class="fas fa-palette"></i> Templates</a
+                  >
+                </li>
+                <li>
+                  <a href="editor.html"><i class="fas fa-code"></i> Editor</a>
+                </li>
+                <li>
+                  <a href="playground.html"
+                    ><i class="fas fa-mouse-pointer"></i> Hover Effects</a
+                  >
+                </li>
+                <li>
+                  <a href="contributors.html"
+                    ><i class="fas fa-users"></i> Contributors</a
+                  >
+                </li>
+                <li>
+                  <a href="leaderboard.html"
+                    ><i class="fas fa-trophy"></i> Leaderboard</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-links">
+              <h3>Resources</h3>
+              <ul>
+                <li>
+                  <a href="about.html"
+                    ><i class="fas fa-info-circle"></i> About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="fas fa-envelope"></i> Contact</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-book"></i> Documentation</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-blog"></i> Blog</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-question-circle"></i> Support</a>
+                </li>
+                <li>
+                  <a href="privacy.html"
+                    ><i class="fas fa-shield-alt"></i> Privacy Policy</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer-social">
+              <div class="newsletter">
+                <h4>Stay Updated</h4>
+                <p>
+                  Get the latest templates and updates directly to your inbox.
+                </p>
+                <form class="newsletter-pill-form">
+                  <input type="email" placeholder="Your email address" required />
+                  <button type="submit" class="newsletter-submit-btn">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Subscribe
+                  </button>
+                </form>
+              </div>
+              <br />
+              <h3>Connect With Us</h3>
+              <div class="social-icons">
+                <a
+                  href="https://github.com/AnujShrivastava01/AnimateItNow"
+                  target="_blank"
+                  title="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/anujshrivastava1/"
+                  target="_blank"
+                  title="LinkedIn"
+                  ><i class="fab fa-linkedin"></i
+                ></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a href="https://discord.com" target="_blank" title="Discord"
+                  ><i class="fab fa-discord"></i
+                ></a>
+                <a href="mailto:contact@animateitnow.com" title="Email"
+                  ><i class="fas fa-envelope"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>
+              © 2025 AnimateItNow. Made with ❤️ by
+              <span class="highlight">Anuj</span> and Contributors.
+            </p>
+          </div>
+        </div>
+      </footer>
+    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
