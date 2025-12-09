@@ -42,7 +42,9 @@
   display: flex;
   list-style: none;
   align-items: center;
+  justify-content:space-between;
   gap: 10px;
+  padding: 10px;
 }
 
 .nav-links li {

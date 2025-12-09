@@ -1,0 +1,19 @@
+{
+  "name": "animateitnow",
+  "version": "1.0.0",
+  "description": "A project for creating and sharing animations.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "keywords": [
+    "animation",
+    "css",
+    "javascript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
