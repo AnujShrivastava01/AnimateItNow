@@ -253,12 +253,15 @@ We're excited to be part of GSSoC 2025 - one of India's largest 3-month open sou
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
+
+
 Benefits for Contributors:
 - 🎓Learn from experienced mentors
 - 🤝Collaborate with developers worldwide
 - 📜Receive certificates and swag
 - 🏆Get recognition for your work
 - 💼Build your portfolio with real-world projects
+
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
@@ -412,7 +415,7 @@ AnimateItNow/
 - ✅ Safari 12+
 - ✅ Edge 79+
 
-## Contact
+## Contact  & Support
 📬 Need Help?
 💬 Community Support
 - Discussions: GitHub Discussions
