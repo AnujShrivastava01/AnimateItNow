@@ -97,6 +97,8 @@ bash
   Using Node.js (if you have http-server installed)
 ```npx http-server```
 
+
+
   Using PHP
 ```php -S localhost:8000```
 
@@ -404,7 +406,7 @@ AnimateItNow/
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-📱 Browser Compatibility
+📱 Compatible Browsers 
 - ✅ Chrome 60+
 - ✅ Firefox 55+
 - ✅ Safari 12+
