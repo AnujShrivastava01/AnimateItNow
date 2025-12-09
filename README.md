@@ -1,6 +1,6 @@
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-<h1 align="center">AnimateItNow 🚀✨</h1>
+<h1 align="center">AnimateItNow !! 🚀✨</h1>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 <p align="center">
@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <b>Welcome to AnimateItNow — a creative, open-source hub for beautiful web UI components and animations!</b>
+  <b>Welcome to AnimateItNow ++ — a creative, open-source hub for beautiful web UI components and animations!</b>
     <br />
     <a href="https://animate-it-now.netlify.app/"><strong>Explore the Live Demo »</strong></a>
     <br />
