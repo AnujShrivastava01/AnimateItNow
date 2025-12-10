@@ -107,9 +107,9 @@ Start Exploring!
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-## 🛠 Installation & Setup
+## 🛠 Installation & Setup guide
 
-### Local Development Setup
+### Local Development Setup guide 
 
 To start working with AnimateItNow locally, follow one of the options below based on your preference and environment.
 ---
