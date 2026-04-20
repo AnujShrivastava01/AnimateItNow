@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.vscode/workspace.code-workspace
+dist/
+build/
+.idea/
+.env
+.env.local
