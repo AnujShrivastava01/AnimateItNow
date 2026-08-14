@@ -33,24 +33,6 @@
 </p>
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
 
-## 🚀 Quick Preview
-
-<div align="center">
-  
-| Login Form Animation | Button Hover Effects | Loading Animations |
-|:---:|:---:|:---:|
-| ![Login Preview](https://via.placeholder.com/300x200/6C63FF/FFFFFF?text=Login+Animation) | ![Button Preview](https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Button+Effects) | ![Loading Preview](https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Loading+Animations) |
-| Smooth form transitions | Interactive hover effects | Creative loading states |
-
-| Modal Animations | Card Transitions | Navigation Effects |
-|:---:|:---:|:---:|
-| ![Modal Preview](https://via.placeholder.com/300x200/45B7D1/FFFFFF?text=Modal+Animations) | ![Card Preview](https://via.placeholder.com/300x200/96CEB4/FFFFFF?text=Card+Effects) | ![Nav Preview](https://via.placeholder.com/300x200/FECA57/FFFFFF?text=Navigation+Animations) |
-| Elegant modal displays | Smooth card transitions | Animated navigation |
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
-
 ## 🔁Project Flowchart
 
 <img width="764" height="442" alt="Gemini_Generated_Image_7mcb487mcb487mcb" src="https://github.com/user-attachments/assets/58968700-cc19-4da2-9755-2e406500e067" />
