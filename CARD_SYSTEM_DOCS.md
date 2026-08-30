@@ -9,7 +9,7 @@ The Unified Card System provides a consistent, reusable, and extensible card com
 ### Base Card Structure
 
 ```html
-<article class="card-system [variants] [effects]">
+<article class="dard-system [variants] [effects]">
   <!-- Card content -->
 </article>
 ```
