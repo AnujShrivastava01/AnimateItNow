@@ -1,0 +1,22 @@
+{
+  "host": "localhost",
+  "port": 8080,
+  "root": ".",
+  "open": false,
+  "ignore": [
+    "node_modules",
+    ".git",
+    ".vscode",
+    "dist",
+    "build",
+    ".idea",
+    "*.log",
+    "*.tmp",
+    "desktop.ini",
+    "thumbs.db",
+    ".DS_Store"
+  ],
+  "wait": 1000,
+  "mount": [["/node_modules", "./node_modules"]],
+  "logLevel": 0
+}
