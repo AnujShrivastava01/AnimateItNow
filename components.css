@@ -3,10 +3,10 @@
 /* 🎨 CSS Variables for theming */
 :root {
     /* Light theme colors */
-    --primary: #6c63ff;
+    --primary: #c7bd01;
     --primary-light: #8a84ff;
     --primary-dark: #554fd8;
-    --secondary: #ff6584;
+    --secondary: #87152c;
     --accent: #36d1dc;
     --text: #1a202c;
     --text-light: #64748b;
@@ -14,7 +14,7 @@
     --bg-secondary: #f5f7fa;
     --bg-tertiary: #e9ecef;
     --border: #dee2e6;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow: 0 10px 30px rgba(199, 80, 80, 0.1);
     --radius: 12px;
     --transition: all 0.3s ease;
     --header-height: 80px;
