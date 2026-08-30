@@ -104,7 +104,7 @@ cd AnimateItNow
 ```
 
 2. **Open the Project**
-* Simply open `index.html` in your favorite web browser by double-clicking the file or using:
+* Simply open `index.html` in your  web browser by double-clicking the file or using:
   * macOS:
     ```bash
     open index.html
