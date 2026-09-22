@@ -13,7 +13,7 @@
   --primary-text: #222;
   --accent: #4f8cff;
   --nav-bg: #fff;
-  --nav-text: rgba(255,255,255);
+  --nav-text: rgba(255,255,255,1);
   --nav-text-60: rgba(255,255,255,0.7);
   --footer-bg: #222;
   --footer-text: #fff;
@@ -158,7 +158,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 18px;
-  background: rgba(2, 13, 47);
+  background: rgb(2, 13, 47);
   /* Ensure stable layout */
   position: relative;
   min-height: 70px;
