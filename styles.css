@@ -396,6 +396,18 @@ body.dark {
   transform: translateY(-2px);
 }
 
+/* ==================== GRADIENT TEXT UTILITY ==================== */
+/* Reusable class to apply gradient-colored text with vendor-prefixed
+   and standard `background-clip` for better compatibility. Keep a
+   readable fallback color for browsers that don't support the clip. */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--primary-text); /* fallback when `background-clip: text` isn't supported */
+}
+
 /* ==================== SCROLL & INTERACTION ENHANCEMENTS ==================== */
 /* Scroll Reveal Animation */
 .scroll-reveal {
