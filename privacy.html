@@ -481,7 +481,9 @@
         transform: translateY(-3px);
       }
     </style>
-  </head>
+      <link rel="stylesheet" href="design-system.css">
+    <script src="site.js"></script>
+</head>
 
   <body>
     <!-- Background Elements -->
@@ -492,13 +494,6 @@
     </div>
 
     <!-- Navbar -->
-<div id="navbar"></div>
-
-  <script>
-    fetch('nav.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('navbar').innerHTML = data);
-  </script>
 
     <main>
       <section>
@@ -709,13 +704,6 @@
     <button class="back-to-top" id="backToTop">
       <i class="fas fa-arrow-up"></i>
     </button>
-
-    <footer>
-      <p>
-        © 2025 AnimateItNow. Made with ❤️ by
-        <span class="highlight">Anuj</span> and Contributors.
-      </p>
-    </footer>
 
     <script>
       // Theme Toggle Functionality

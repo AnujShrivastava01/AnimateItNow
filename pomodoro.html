@@ -11,24 +11,11 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <link rel="stylesheet" href="./navbar_styles.css">
+    <link rel="stylesheet" href="design-system.css">
+    <script src="site.js"></script>
 </head>
 <body>
   <!-- Navbar -->
-  <div id="navbar"></div>
-
-  <script>
-    fetch('nav.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
-        // Load the navbar theme manager script
-        const script = document.createElement('script');
-        script.src = 'navbar-theme.js';
-        document.head.appendChild(script);
-      })
-      .catch(err => console.error('Error loading navbar:', err));
-  </script>
   <!-- Main -->
   <main class="main-container">
     <div class="timer-container">

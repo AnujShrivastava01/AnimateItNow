@@ -1177,6 +1177,8 @@
             box-shadow: 0 0 5px rgba(108, 99, 255, 0.7), 0 0 10px rgba(108, 99, 255, 0.4); 
         }
     </style>
+    <link rel="stylesheet" href="design-system.css">
+    <script src="site.js"></script>
 </head>
 <body>
     <div id="snake-area">
@@ -1196,13 +1198,6 @@
         <div class="cursor-snake"></div>
         <div class="cursor-snake"></div>
     </div>
-    <div id="navbar"></div>
-
-    <script>
-    fetch('nav.html')
-        .then(res => res.text())
-        .then(data => document.getElementById('navbar').innerHTML = data);
-    </script>
         <main class="playground-main">
             <section class="playground-section">
                 <div class="container">
@@ -1437,28 +1432,6 @@
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <h2>AnimateItNow</h2>
-                    <p>Creating impactful web animations and templates for everyone.</p>
-                </div>
-                <div class="footer-right">
-                    <h4>Connect With Us</h4>
-                    <ul>
-                        <li><a href="https://github.com/AnujShrivastava01/AnimateItNow" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/anujshrivastava1/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="mailto:contact@animateitnow.com" rel="noopener noreferrer"><i class="fas fa-envelope"></i> Email Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 AnimateItNow. Made with ❤️ by <span class="highlight">Anuj</span> and Contributors.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
