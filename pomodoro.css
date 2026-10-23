@@ -1,105 +1,28 @@
-/* Reset default margins */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
+/* Pomodoro timer */
+.main-container { display: grid; place-items: center; min-height: 100vh; padding: calc(var(--header-height) + 40px) 20px 72px; background: radial-gradient(60% 60% at 50% 0%, rgba(99, 102, 241, 0.16), transparent 70%), var(--bg); }
+.timer-container { width: 100%; max-width: 480px; padding: 44px 36px 40px; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
+.timer-container h1 { margin: 0 0 6px; font-size: 1.9rem; font-weight: 800; letter-spacing: -0.03em; }
+.timer-sub { margin: 0 0 28px; }
 
-/* Ensure navbar stays fixed */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
+.modes { display: inline-flex; gap: 4px; padding: 5px; margin-bottom: 36px; background: var(--bg-tertiary); border-radius: var(--radius-full); }
+.modes button { padding: 9px 18px; font: 600 0.86rem var(--font-sans); color: var(--text-light); background: transparent; border: 0; border-radius: var(--radius-full); cursor: pointer; transition: var(--transition); }
+.modes button:hover { color: var(--text); }
+.modes button.active { color: var(--primary-dark); background: var(--surface); box-shadow: var(--shadow-sm); }
+[data-theme="dark"] .modes button.active { color: var(--primary-light); background: var(--surface-raised); }
 
-/* Push content below navbar */
-.main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 80px); /* adjust depending on navbar height */
-  padding-top: 80px; /* same as navbar height */
-  box-sizing: border-box;
-}
+.dial { position: relative; display: grid; place-items: center; width: 260px; height: 260px; margin: 0 auto 36px; border-radius: 50%; background: conic-gradient(from 0deg, #6366f1, #8b5cf6, #d946ef, #6366f1); box-shadow: 0 20px 50px -14px rgba(99, 102, 241, 0.55); animation: dialSpin 24s linear infinite; }
+.dial::before { content: ""; position: absolute; inset: 10px; border-radius: 50%; background: var(--surface); }
+.time-display { position: relative; font: 800 3.6rem/1 var(--font-sans); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; color: var(--text); animation: dialSpin 24s linear infinite reverse; }
+@keyframes dialSpin { to { transform: rotate(360deg); } }
 
-/* Timer card */
-.timer-container {
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
+.controls { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.controls button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; font: 600 0.95rem var(--font-sans); color: var(--text); background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-full); cursor: pointer; transition: var(--transition); }
+.controls button:hover { transform: translateY(-2px); border-color: var(--primary); color: var(--primary); }
+#start-btn { color: #fff; background: var(--grad-brand); border-color: transparent; box-shadow: var(--shadow-glow); }
+#start-btn:hover { color: #fff; filter: brightness(1.06); }
 
-h1 {
-  color: #333;
-  margin-bottom: 1.5rem;
-}
-
-.timer {
-  margin-bottom: 1.5rem;
-}
-
-.time-display {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-/* Buttons */
-.controls button {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#start-btn {
-  background-color: #4CAF50;
-  color: white;
-}
-#start-btn:hover {
-  background-color: #45a049;
-}
-
-#pause-btn {
-  background-color: #f44336;
-  color: white;
-}
-#pause-btn:hover {
-  background-color: #d32f2f;
-}
-
-#reset-btn {
-  background-color: #2196F3;
-  color: white;
-}
-#reset-btn:hover {
-  background-color: #1e88e5;
-}
-
-/* Mode buttons */
-.modes button {
-  background-color: #ddd;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.modes button.active {
-  background-color: #2c3e50;
-  color: white;
-}
-
-.modes button:hover:not(.active) {
-  background-color: #ccc;
+@media (max-width: 480px) {
+  .timer-container { padding: 32px 20px; }
+  .dial { width: 220px; height: 220px; }
+  .time-display { font-size: 3rem; }
 }

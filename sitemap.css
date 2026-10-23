@@ -1,0 +1,11 @@
+/* Sitemap */
+.sitemap-main { max-width: 1040px; padding-bottom: 104px; display: grid; gap: 48px; }
+.section-title { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; font-size: 1.3rem; font-weight: 700; }
+.section-title__icon { width: 40px; height: 40px; display: grid; place-items: center; font-size: 1rem; color: #fff; background: var(--grad-brand); border-radius: 12px; }
+.link-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+.link-card { position: relative; display: grid; gap: 2px; padding: 16px 48px 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); transition: var(--transition); }
+.link-card:hover { transform: translateY(-3px); border-color: var(--primary); box-shadow: var(--shadow-hover); color: var(--text); }
+.link-card__name { font-weight: 600; }
+.file-indicator { font: 500 0.78rem var(--font-mono); color: var(--text-muted); }
+.link-card i { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 0.8rem; color: var(--primary); opacity: 0; transition: var(--transition); }
+.link-card:hover i { opacity: 1; right: 14px; }

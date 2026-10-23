@@ -1,0 +1,40 @@
+/* Shared overrides for the interactive tool pages: playground, components, opaque hover */
+
+/* Consistent page headings */
+[data-page="playground"] .playground-title,
+[data-page="components"] .docs-title {
+  display: block; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1;
+  margin: 0 0 16px; color: var(--text); background: none; -webkit-text-fill-color: currentColor; text-align: center;
+}
+[data-page="playground"] .playground-title .gradient-text,
+[data-page="components"] .docs-title .gradient-text { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+[data-page="playground"] .playground-subtitle,
+[data-page="components"] .docs-subtitle { max-width: 640px; margin: 0 auto 32px; font-size: 1.12rem; color: var(--text-light); }
+[data-page="playground"] .playground-main { padding-top: calc(var(--header-height) + 56px); background: radial-gradient(60% 40% at 50% 0%, rgba(99, 102, 241, 0.15), transparent 70%), var(--bg); }
+[data-page="playground"] .playground-main::before { display: none; }
+[data-page="components"] .hero { padding: calc(var(--header-height) + 56px) 0 48px; background: radial-gradient(60% 80% at 50% 0%, rgba(99, 102, 241, 0.16), transparent 70%); }
+[data-page="components"] .hero::before { display: none; }
+[data-page="components"] .ds-eyebrow, [data-page="playground"] .ds-eyebrow { margin-bottom: 20px; }
+
+/* Filter pills */
+[data-page="playground"] .filter-btn, [data-page="components"] .filter-btn, [data-page="components"] .filter-option {
+  font-family: var(--font-sans); font-weight: 600; border-radius: var(--radius-full);
+}
+[data-page="playground"] .filter-btn.active, [data-page="components"] .filter-btn.active {
+  color: #fff; background: var(--grad-brand); border-color: transparent; box-shadow: var(--shadow-glow);
+}
+
+/* Cards / surfaces */
+[data-page="playground"] .effect-card, [data-page="components"] .component-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: none;
+  transition: var(--transition);
+}
+[data-page="playground"] .effect-card:hover, [data-page="components"] .component-card:hover { box-shadow: var(--shadow-hover); border-color: var(--border-strong); }
+[data-page="components"] .search-filter-section { background: none; border: 0; box-shadow: none; padding: 0 0 24px; border-radius: 0; }
+[data-page="components"] .search-filter-section > .container { max-width: 1152px; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+
+/* Opaque-hover page */
+[data-page="opaque_hover"] .main-content { padding-top: 0; }
+[data-page="opaque_hover"] .example-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: none; }
+[data-page="opaque_hover"] .example-card:hover { box-shadow: var(--shadow-hover); }
+[data-page="opaque_hover"] .section-title { margin-bottom: 40px; }

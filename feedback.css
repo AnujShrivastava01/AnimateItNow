@@ -1,0 +1,30 @@
+/* Feedback page */
+.feedback { padding: 24px 0 104px; }
+.feedback-container { max-width: 720px; margin: 0 auto; padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow); }
+.feedback-form { display: grid; gap: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: grid; gap: 8px; align-content: start; }
+.form-group > label { font: 600 0.88rem var(--font-sans); color: var(--text); }
+.feedback-form input, .feedback-form textarea { width: 100%; padding: 13px 16px; font-size: 0.97rem; resize: vertical; }
+.feedback-form .error { border-color: var(--danger); }
+.error-message { display: none; font-size: 0.82rem; color: var(--danger); }
+
+#starRating { display: flex; gap: 6px; }
+#starRating span { font-size: 2.2rem; line-height: 1; color: var(--border-strong); cursor: pointer; transition: color 0.15s ease, transform 0.15s ease; user-select: none; }
+#starRating span:hover { transform: scale(1.15); }
+#starRating span.hover, #starRating span.active { color: #fbbf24; text-shadow: 0 4px 14px rgba(251, 191, 36, 0.5); }
+#starDescription { font-size: 0.9rem; font-weight: 600; color: var(--text-light); min-height: 1.4em; }
+.feedback-form .btn { justify-self: start; }
+
+#popupOverlay { position: fixed; inset: 0; z-index: 1300; display: grid; place-items: center; padding: 20px; background: rgba(9, 11, 22, 0.6); backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s; }
+#popupOverlay.show { opacity: 1; visibility: visible; }
+.popup { width: 100%; max-width: 400px; padding: 36px 32px; text-align: center; background: var(--surface-raised); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); transform: translateY(16px) scale(0.97); transition: transform 0.3s var(--ease); }
+#popupOverlay.show .popup { transform: none; }
+.popup__icon { width: 64px; height: 64px; display: grid; place-items: center; margin: 0 auto 20px; font-size: 1.6rem; color: #fff; background: linear-gradient(135deg, #34d399, #059669); border-radius: 50%; box-shadow: 0 12px 24px -8px rgba(16, 185, 129, 0.6); }
+.popup h3 { margin: 0 0 8px; font-size: 1.4rem; }
+.popup p { margin: 0 0 24px; }
+
+@media (max-width: 640px) {
+  .feedback-container { padding: 24px; }
+  .form-grid { grid-template-columns: 1fr; }
+}

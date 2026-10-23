@@ -1,154 +1,241 @@
-// 📦 Template-Specific Functionality Handler
-// Theme management and cursor logic are delegated to script.js
+/**
+ * Template gallery — search, category filters and favourites.
+ */
+const templateCollection = [
+        {
+          id: 1,
+          title: "Animated Navigation Bar",
+          description:
+            "A sleek navigation bar with smooth hover animations and dropdown effects.",
+          category: "navbar",
+          icon: "fas fa-bars",
+          link: "templates/navbar.html",
+        },
+        {
+          id: 2,
+          title: "Contact Us Template",
+          description:
+            "A responsive contact form with animated inputs and validation.",
+          category: "form",
+          icon: "fas fa-envelope",
+          link: "templates/contact.html",
+        },
+        {
+          id: 3,
+          title: "Coming Soon Landing Page",
+          description:
+            "An engaging coming soon page with countdown timer and newsletter signup.",
+          category: "landing",
+          icon: "fas fa-hourglass-half",
+          link: "templates/Coming_Soon_Landing_Page.html",
+        },
+        {
+          id: 4,
+          title: "Animated Button Collection",
+          description:
+            "A variety of creative button animations for different interactions.",
+          category: "button",
+          icon: "fas fa-hand-pointer",
+          link: "templates/animated-btn.html",
+        },
+        {
+          id: 5,
+          title: "Product Card Showcase",
+          description:
+            "Interactive product cards with hover effects and quick view options.",
+          category: "card",
+          icon: "fas fa-shopping-cart",
+          link: "templates/card_hover.html",
+        },
+        {
+          id: 6,
+          title: "Login/Signup Form",
+          description:
+            "Beautiful authentication forms with smooth transitions between states.",
+          category: "form",
+          icon: "fas fa-user",
+          link: "templates/LoginFormGlassMorphism.html",
+        },
+        {
+          id: 7,
+          title: "Pricing Table",
+          description:
+            "Animated pricing tables with hover effects and selection animations.",
+          category: "card",
+          icon: "fas fa-tags",
+          link: "templates/price_plan.html",
+        },
+        {
+          id: 8,
+          title: "Testimonial Slider",
+          description:
+            "A responsive testimonial slider with smooth transitions.",
+          category: "other",
+          icon: "fas fa-comments",
+          link: "templates/Testinomials_Sliders.html",
+        },
+        {
+          id: 9,
+          title: "Hero Section",
+          description:
+            "An eye-catching hero section with animated text and call-to-action.",
+          category: "landing",
+          icon: "fas fa-star",
+          link: "templates/hero.html",
+        },
+        {
+          id: 10,
+          title: "FAQ Accordion",
+          description:
+            "An animated FAQ section with smooth expand/collapse transitions.",
+          category: "other",
+          icon: "fas fa-question-circle",
+          link: "templates/faq_acc.html",
+        },
+        {
+          id: 11,
+          title: "Image Gallery",
+          description:
+            "A responsive image gallery with lightbox and hover effects.",
+          category: "other",
+          icon: "fas fa-images",
+          link: "templates/carousel.html",
+        },
+        {
+          id: 12,
+          title: "Progress Bars",
+          description:
+            "Animated progress bars with different styles and loading effects.",
+          category: "other",
+          icon: "fas fa-chart-bar",
+          link: "templates/Progress_Bar.html",
+        },
+        {
+          id: 13,
+          title: "404 Page",
+          description: "A responsive 404 error page template for websites.",
+          category: "other",
+          icon: "fas fa-exclamation-triangle",
+          link: "templates/404.html",
+        },
+        {
+          id: 14,
+          title: "CSS Snippet Generator",
+          description: "Generate code for custom CSS styling",
+          category: "other",
+          icon: "fas fa-hand-pointer",
+          link: "generator.html",
+        },
+        {
+          id: 15,
+          title: "Pomodoro Timer",
+          description: "Your all in one Stopwatch.",
+          category: "other",
+          icon: "fas fa-hourglass-half",
+          link: "pomodoro.html",
+        },
+        {
+          id: 16,
+          title: "Quote Generator",
+          description: "Daily dose of motivation.",
+          category: "other",
+          icon: "fas fa-comments",
+          link: "templates/quotes.html",
+        }
+      ];
 
-// 🔍 Search & Category Filter System
-const searchInput = document.getElementById("search-bar");
-const templateCardElements = document.querySelectorAll(".template-card");
-const noResultsMessage = document.querySelector(".no-results");
-const filterToggleButton = document.getElementById("filter-toggle");
-const categoryFilterContainer = document.getElementById("category-filters");
-const categoryButtonElements = document.querySelectorAll(".category-btn");
+const CATEGORY_LABELS = {
+  navbar: "Navigation",
+  button: "Buttons",
+  card: "Cards",
+  form: "Forms",
+  landing: "Landing pages",
+  other: "Other"
+};
 
-// 🎯 Currently selected category filter
-let currentActiveCategory = "all";
+const grid = document.getElementById("templatesGrid");
+const searchBar = document.getElementById("search-bar");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const resultCount = document.getElementById("resultCount");
 
-// 🔄 Toggle category filter dropdown visibility
-filterToggleButton.addEventListener("click", (event) => {
-  event.stopPropagation();
-  categoryFilterContainer.classList.toggle("show");
-});
+let favoriteTemplates = [];
+try {
+  favoriteTemplates = JSON.parse(localStorage.getItem("favorites")) || [];
+} catch (e) {
+  favoriteTemplates = [];
+}
 
-// 🚪 Close category filters when user clicks outside the container
-document.addEventListener("click", (event) => {
-  if (!filterToggleButton.contains(event.target) && !categoryFilterContainer.contains(event.target)) {
-    categoryFilterContainer.classList.remove("show");
+function escapeHtml(str) {
+  return String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function render(list) {
+  grid.innerHTML = "";
+  resultCount.textContent = list.length + (list.length === 1 ? " template" : " templates");
+
+  if (!list.length) {
+    grid.innerHTML =
+      '<div class="no-results"><i class="fas fa-magnifying-glass"></i><h3>No templates found</h3>' +
+      "<p>Try a different search term or clear the filter.</p></div>";
+    return;
+  }
+
+  list.forEach((t, i) => {
+    const fav = favoriteTemplates.includes(t.id);
+    const card = document.createElement("article");
+    card.className = "template-card";
+    card.dataset.category = t.category;
+    card.style.setProperty("--i", Math.min(i, 12));
+    card.innerHTML =
+      '<div class="template-preview"><i class="' + escapeHtml(t.icon) + '" aria-hidden="true"></i>' +
+      '<button class="favorite-btn' + (fav ? " is-fav" : "") + '" data-id="' + t.id + '" type="button" aria-pressed="' + fav +
+      '" aria-label="' + (fav ? "Remove from favorites" : "Add to favorites") + '">' +
+      '<i class="' + (fav ? "fas" : "far") + ' fa-star"></i></button></div>' +
+      '<div class="template-content"><span class="template-tag">' + (CATEGORY_LABELS[t.category] || t.category) + "</span>" +
+      "<h2>" + escapeHtml(t.title) + "</h2><p>" + escapeHtml(t.description) + "</p>" +
+      '<a href="' + escapeHtml(t.link) + '" class="template-btn">View template <i class="fas fa-arrow-right"></i></a></div>';
+    grid.appendChild(card);
+  });
+}
+
+function applyFilters() {
+  const query = searchBar.value.trim().toLowerCase();
+  const active = document.querySelector(".filter-btn.active").dataset.filter;
+  render(
+    templateCollection.filter((t) => {
+      const matchesQuery = t.title.toLowerCase().includes(query) || t.description.toLowerCase().includes(query);
+      const matchesFilter =
+        active === "all" ? true : active === "favorites" ? favoriteTemplates.includes(t.id) : t.category === active;
+      return matchesQuery && matchesFilter;
+    })
+  );
+}
+
+grid.addEventListener("click", (e) => {
+  const btn = e.target.closest(".favorite-btn");
+  if (!btn) return;
+  const id = parseInt(btn.dataset.id, 10);
+  favoriteTemplates = favoriteTemplates.includes(id) ? favoriteTemplates.filter((x) => x !== id) : favoriteTemplates.concat(id);
+  try {
+    localStorage.setItem("favorites", JSON.stringify(favoriteTemplates));
+  } catch (err) {}
+  if (document.querySelector(".filter-btn.active").dataset.filter === "favorites") applyFilters();
+  else {
+    const on = favoriteTemplates.includes(id);
+    btn.classList.toggle("is-fav", on);
+    btn.setAttribute("aria-pressed", on);
+    btn.setAttribute("aria-label", on ? "Remove from favorites" : "Add to favorites");
+    btn.firstElementChild.className = (on ? "fas" : "far") + " fa-star";
   }
 });
 
-// 📂 Category filtering implementation
-categoryButtonElements.forEach(button => {
+searchBar.addEventListener("input", applyFilters);
+filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    // Update active button state
-    categoryButtonElements.forEach(btn => btn.classList.remove("active"));
+    filterButtons.forEach((b) => b.classList.remove("active"));
     button.classList.add("active");
-    
-    // Set current active category
-    currentActiveCategory = button.dataset.category;
-    
-    // Apply template filtering
-    applyTemplateFiltering();
-    
-    // Collapse dropdown after selection
-    categoryFilterContainer.classList.remove("show");
+    applyFilters();
   });
 });
 
-// 🔎 Search and filter functionality
-function applyTemplateFiltering() {
-  const searchQuery = searchInput.value.trim().toLowerCase();
-  let visibleTemplateCount = 0;
-
-  templateCardElements.forEach((cardElement) => {
-    const cardTitle = cardElement.querySelector("h2").textContent.trim().toLowerCase();
-    const cardCategory = cardElement.dataset.category;
-    
-    // Verify if card matches search criteria
-    const matchesSearchQuery = searchQuery === "" || cardTitle.includes(searchQuery);
-    
-    // Verify if card matches category filter
-    const matchesCategoryFilter = currentActiveCategory === "all" || cardCategory === currentActiveCategory;
-    
-    // Display logic based on filter conditions
-    if (matchesSearchQuery && matchesCategoryFilter) {
-      cardElement.style.display = "";
-      visibleTemplateCount++;
-    } else {
-      cardElement.style.display = "none";
-    }
-  });
-
-  // Handle no results message visibility
-  if (noResultsMessage) {
-    noResultsMessage.style.display = visibleTemplateCount === 0 ? "block" : "none";
-  }
-}
-
-// 🖱️ Add input event listener to search bar
-searchInput.addEventListener("input", applyTemplateFiltering);
-
-// 🚀 Initialize template filtering on page load
-applyTemplateFiltering();
-
-// 🎬 Text Animation Handler for Sequential Display
-const animationTexts = [
-  "Typing Animation",
-  "Gradient Text",
-  "Neon Glow",
-  "Wavy Text Animation",
-  "Zoom on Hover",
-];
-
-let currentTextIndex = 0; // Current position in text array
-let currentCharIndex = 0; // Current character position for typing/deleting
-let isDeletingMode = false;
-
-const animationSpeed = 100; // Character typing/deletion speed
-const pauseDuration = 1000; // Pause between animations
-const animationTarget = document.getElementById("textTarget");
-
-// 🧠 Development debugging utility
-function logDebugInfo(message) {
-  // 📝 Placeholder for potential debugging requirements
-  // console.log(`[Template System] ${message}`);
-}
-
-if (animationTarget) {
-  // 🔄 Main animation loop for text effects
-  function executeTypeAnimation() {
-    const currentAnimationText = animationTexts[currentTextIndex];
-
-    if (isDeletingMode) {
-      animationTarget.textContent = currentAnimationText.substring(0, currentCharIndex--);
-    } else {
-      animationTarget.textContent = currentAnimationText.substring(0, currentCharIndex++);
-    }
-    
-    // Completed typing full text
-    if (!isDeletingMode && currentCharIndex === currentAnimationText.length + 1) {
-      setTimeout(() => {
-        isDeletingMode = true;
-        executeTypeAnimation();
-      }, pauseDuration);
-      return;
-    }
-
-    // Transition to next text after deletion
-    if (isDeletingMode && currentCharIndex === 0) {
-      isDeletingMode = false;
-      // Use modulo for circular array navigation
-      currentTextIndex = (currentTextIndex + 1) % animationTexts.length;
-    }
-
-    // Deletion occurs at faster rate than typing
-    setTimeout(executeTypeAnimation, isDeletingMode ? animationSpeed / 2 : animationSpeed);
-  }
-  
-  executeTypeAnimation(); // Initialize animation sequence
-}
-
-// 🧪 Performance monitoring placeholder function
-function trackPerformanceMetrics() {
-  // 📊 Reserved for future performance monitoring implementation
-  // console.log("Performance metrics collection:", performance.memory);
-}
-
-// 🧼 Resource cleanup and memory management
-function performCleanupOperations() {
-  // 🧹 Reserved for future cleanup and optimization tasks
-  console.log("🧹 Template system cleanup operations completed");
-}
-
-// 🔄 Additional utility function for future enhancements
-function initializeTemplateSystem() {
-  console.log("🎯 Template filtering system initialized successfully");
-}
+applyFilters();
