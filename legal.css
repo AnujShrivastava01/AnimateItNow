@@ -1,0 +1,12 @@
+/* Long-form legal / policy pages */
+.legal-wrap { padding: 16px 0 104px; }
+.legal { max-width: 780px; margin: 0 auto; padding: 48px 56px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); box-shadow: var(--shadow-sm); }
+.legal__updated { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 8px; padding: 6px 14px; font-size: 0.85rem; font-weight: 600; color: var(--primary); background: var(--brand-50); border-radius: var(--radius-full); }
+.legal h2 { margin: 40px 0 12px; padding-top: 28px; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; border-top: 1px solid var(--border); }
+.legal h2:first-of-type { margin-top: 24px; }
+.legal h3 { margin: 24px 0 8px; font-size: 1.1rem; }
+.legal p, .legal li { font-size: 1rem; line-height: 1.75; color: var(--text-light); }
+.legal p { margin: 0 0 14px; }
+.legal ul { margin: 0 0 16px; padding-left: 22px; display: grid; gap: 6px; }
+.legal li::marker { color: var(--primary); }
+@media (max-width: 640px) { .legal { padding: 28px 22px; } }

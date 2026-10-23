@@ -445,21 +445,19 @@ c<!DOCTYPE html>
         }
     </style>
     <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="tools.css">
     <script src="site.js"></script>
 </head>
 <body>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
 
     <!-- Header -->
-    <header class="header">
+    <section class="ds-hero">
         <div class="container">
-            <h1>Opaque on Hover Effect</h1>
+            <span class="ds-eyebrow"><i class="fas fa-eye"></i> Hover effects</span>
+            <h1>Opaque on <span class="gradient-text">hover</span></h1>
             <p>Explore different variations of the opacity hover effect with smooth transitions and animations</p>
         </div>
-    </header>
+    </section>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -698,31 +696,7 @@ c<!DOCTYPE html>
 
     <!-- Footer -->
 
-    <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
-
     <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        function setTheme(isDark) {
-            const icon = themeToggle.querySelector('i');
-            body.classList.toggle('dark-theme', isDark);
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            
-            if (icon) {
-                icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-            }
-        }
-
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setTheme(savedTheme === 'dark' || (savedTheme === null && prefersDark));
-
-        themeToggle.addEventListener('click', () => {
-            setTheme(!body.classList.contains('dark-theme'));
-        });
-
         // Code Tabs
         const codeTabs = document.querySelectorAll('.code-tab');
         const codeBlocks = document.querySelectorAll('.code-block');

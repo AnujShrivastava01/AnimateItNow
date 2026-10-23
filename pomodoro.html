@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pomodoro Timer</title>
-  <link rel="icon" href="favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="pomodoro.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" href="images/logo.png" />
-    <link rel="stylesheet" href="design-system.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer — AnimateItNow</title>
+    <meta name="description" content="A simple Pomodoro timer to help you stay focused while you build." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="design-system.css" />
+    <link rel="stylesheet" href="pomodoro.css" />
     <script src="site.js"></script>
-</head>
-<body>
-  <!-- Navbar -->
-  <!-- Main -->
-  <main class="main-container">
-    <div class="timer-container">
-      <h1>Pomodoro Timer</h1>
-      <div class="timer">
-        <div class="time-display">25:00</div>
-        <div class="controls">
-          <button id="start-btn">Start</button>
-          <button id="pause-btn">Pause</button>
-          <button id="reset-btn">Reset</button>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="timer-container">
+        <span class="ds-eyebrow"><i class="fas fa-clock"></i> Focus timer</span>
+        <h1>Pomodoro timer</h1>
+        <p class="timer-sub">Work in focused sprints, rest in between.</p>
+
+        <div class="modes" role="group" aria-label="Timer mode">
+          <button id="pomodoro-btn" class="active" type="button">Pomodoro</button>
+          <button id="short-break-btn" type="button">Short break</button>
+          <button id="long-break-btn" type="button">Long break</button>
+        </div>
+
+        <div class="timer">
+          <div class="dial"><div class="time-display">25:00</div></div>
+          <div class="controls">
+            <button id="start-btn" type="button"><i class="fas fa-play"></i> Start</button>
+            <button id="pause-btn" type="button"><i class="fas fa-pause"></i> Pause</button>
+            <button id="reset-btn" type="button"><i class="fas fa-rotate-left"></i> Reset</button>
+          </div>
         </div>
       </div>
-      <div class="modes">
-        <button id="pomodoro-btn" class="active">Pomodoro</button>
-        <button id="short-break-btn">Short Break</button>
-        <button id="long-break-btn">Long Break</button>
-      </div>
-    </div>
-  </main>
-
-  <script src="pomodoro.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="script.js"></script>
-</body>
+    </main>
+    <script src="pomodoro.js"></script>
+  </body>
 </html>

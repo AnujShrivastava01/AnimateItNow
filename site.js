@@ -166,10 +166,9 @@
     }
     if (!body.hasAttribute("data-no-footer")) {
       document.querySelectorAll("body > footer, body footer.footer, body #footer-placeholder").forEach(function (f) { f.remove(); });
-      var scripts = body.querySelectorAll(":scope > script");
       var holder = document.createElement("div");
       holder.innerHTML = buildFooter();
-      body.insertBefore(holder.firstChild, scripts.length ? scripts[0] : null);
+      body.appendChild(holder.firstChild);
     }
 
     // Scroll progress + back-to-top

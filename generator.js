@@ -76,7 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard
       .writeText(textToCopy)
       .then(() => {
-        alert("CSS code copied to clipboard!");
+        copyButton.classList.add("copied");
+        copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        setTimeout(() => {
+          copyButton.classList.remove("copied");
+          copyButton.innerHTML = '<i class="fas fa-copy"></i> Copy to clipboard';
+        }, 1800);
       })
       .catch((err) => {
         console.error("Failed to copy text: ", err);

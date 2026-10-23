@@ -1,322 +1,161 @@
+/**
+ * Live editor — HTML / CSS / JS in tabs with a sandboxed live preview.
+ */
+(function () {
+  "use strict";
 
-// Editor functionality
-=======
-n
-const htmlEditor = document.getElementById("htmlCode");
-const cssEditor = document.getElementById("cssCode");
-const jsEditor = document.getElementById("jsCode");
-const output = document.getElementById("output");
+  var STORAGE_KEY = "animateItNowCode";
 
-
-// Run code function
-function runCode() {
-  const html = htmlEditor.value;
-  const css = cssEditor.value;
-  const js = jsEditor.value;
-  
-  const outputDoc = output.contentDocument || output.contentWindow.document;
-  
-  outputDoc.open();
-  outputDoc.write(`
-=======
-// ▶️ Run button functionality
-document.getElementById("runBtn").addEventListener("click", () => {
-  const html = htmlEditor.value.trim();
-  const css = cssEditor.value.trim();
-  const js = jsEditor.value.trim();
-
-  // 🏗️ Construct the result HTML
-  const result = `
-
-                 
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <style>${css}</style>
-    </head>
-    <body>
-      ${html}
-      <script>${js}<\/script>
-    </body>
-    </html>
-  `);
-  outputDoc.close();
-}
-
-// Reset code function
-function resetCode() {
-  if (confirm('Are you sure you want to reset all code?')) {
-    htmlEditor.value = `<!DOCTYPE html>
-<html>
-<head>
-    <title>My Animation</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to AnimateItNow</h1>
-        <div class="box"></div>
-        <button id="animateBtn">Animate</button>
-    </div>
-</body>
-</html>`;
-    
-    cssEditor.value = `body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background: linear-gradient(135deg, #6c63ff, #36d1dc);
-}
-
-
-.container {
-    text-align: center;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-h1 {
-    color: #6c63ff;
-    margin-bottom: 20px;
-}
-
-.box {
-    width: 100px;
-    height: 100px;
-    background: #6c63ff;
-    margin: 20px auto;
-    border-radius: 8px;
-    transition: all 0.5s ease;
-}
-
-.box.animated {
-    transform: rotate(360deg) scale(1.2);
-    background: #ff6584;
-    border-radius: 50%;
-}
-
-button {
-    background: #6c63ff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #554fd8;
-}`;
-    
-    jsEditor.value = `document.getElementById('animateBtn').addEventListener('click', function() {
-    const box = document.querySelector('.box');
-    box.classList.toggle('animated');
-    
-    // Add some fun effects
-    if (box.classList.contains('animated')) {
-        this.textContent = 'Reset';
-        // Create particles
-        createParticles();
-    } else {
-        this.textContent = 'Animate';
-    }
-});
-
-function createParticles() {
-    const container = document.querySelector('.container');
-    for (let i = 0; i < 20; i++) {
-        const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = '10px';
-        particle.style.height = '10px';
-        particle.style.background = '#ff6584';
-        particle.style.borderRadius = '50%';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.animation = \`float \${Math.random() * 2 + 1}s ease-in-out infinite\`;
-        container.appendChild(particle);
-        
-        // Remove particle after animation
-        setTimeout(() => {
-            particle.remove();
-        }, 3000);
-=======
-// 🔄 Reset button functionality
-document.getElementById("resetBtn").addEventListener("click", () => {
-  htmlEditor.value = "";
-  cssEditor.value = "";
-  jsEditor.value = "";
-  output.srcdoc = "<!DOCTYPE html><html><body></body></html>";
-});
- 
-// 📜 Scroll indicator functionality
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  document.querySelector(".scroll-indicator").style.width = scrollPercent + "%";
-}); 
-
-// 📋 Copy to clipboard functionality
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', async (e) => {
-    const targetId = e.target.getAttribute('data-target');
-    const textarea = document.getElementById(targetId);
-    const tooltip = e.target.parentElement.querySelector('.copy-tooltip');
-    
-    try {
-      await navigator.clipboard.writeText(textarea.value);
-      tooltip.classList.add('show');
-      // 🕒 Auto-hide tooltip after 1.5 seconds
-      setTimeout(() => {
-        tooltip.classList.remove('show');
-      }, 1500);
-    } catch (err) {
-      // 🆘 Fallback for older browsers
-      textarea.select();
-      document.execCommand('copy');
-      tooltip.classList.add('show');
-      // 🕒 Auto-hide tooltip after 1.5 seconds
-      setTimeout(() => {
-        tooltip.classList.remove('show');
-      }, 1500);
-
-    }
-}
-
-// Add CSS for particle animation
-const style = document.createElement('style');
-style.textContent = \`
-@keyframes float {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-    50% { transform: translateY(-20px) scale(1.2); opacity: 0.7; }
-}
-\`;
-document.head.appendChild(style);`;
-    
-    runCode();
-  }
-}
-
-// Copy code function
-async function copyCode(targetId) {
-  const textarea = document.getElementById(targetId);
-  
-  try {
-    await navigator.clipboard.writeText(textarea.value);
-    
-    // Show feedback
-    const button = event.currentTarget;
-    const tooltip = button.querySelector('.copy-tooltip');
-    tooltip.classList.add('show');
-    
-    setTimeout(() => {
-      tooltip.classList.remove('show');
-    }, 2000);
-  } catch (err) {
-    // Fallback for older browsers
-    textarea.select();
-    document.execCommand('copy');
-    
-    // Show feedback
-    const button = event.currentTarget;
-    const tooltip = button.querySelector('.copy-tooltip');
-    tooltip.classList.add('show');
-    
-    setTimeout(() => {
-      tooltip.classList.remove('show');
-    }, 2000);
-  }
-}
-
-// Toggle fullscreen
-function toggleFullscreen() {
-  if (!document.fullscreenElement) {
-    output.requestFullscreen().catch(err => {
-      console.error(`Error attempting to enable fullscreen: ${err.message}`);
-    });
-    document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-compress"></i>';
-  } else {
-    document.exitFullscreen();
-    document.getElementById('fullscreenBtn').innerHTML = '<i class="fas fa-expand"></i>';
-  }
-}
-
-// Auto-save code
-function autoSave() {
-  const code = {
-    html: htmlEditor.value,
-    css: cssEditor.value,
-    js: jsEditor.value
+  var STARTER = {
+    html:
+      '<div class="stage">\n' +
+      '  <h1>Welcome to AnimateItNow</h1>\n' +
+      '  <div class="box"></div>\n' +
+      '  <button id="animateBtn">Animate</button>\n' +
+      '</div>',
+    css:
+      'body {\n' +
+      '  margin: 0;\n' +
+      '  min-height: 100vh;\n' +
+      '  display: grid;\n' +
+      '  place-items: center;\n' +
+      '  font-family: system-ui, sans-serif;\n' +
+      '  background: linear-gradient(135deg, #6366f1, #8b5cf6);\n' +
+      '}\n\n' +
+      '.stage {\n' +
+      '  display: grid;\n' +
+      '  gap: 24px;\n' +
+      '  justify-items: center;\n' +
+      '  padding: 40px;\n' +
+      '  text-align: center;\n' +
+      '  color: #fff;\n' +
+      '}\n\n' +
+      '.box {\n' +
+      '  width: 96px;\n' +
+      '  height: 96px;\n' +
+      '  border-radius: 24px;\n' +
+      '  background: #fff;\n' +
+      '  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.6s;\n' +
+      '}\n\n' +
+      '.box.animated {\n' +
+      '  transform: rotate(180deg) scale(1.3);\n' +
+      '  border-radius: 50%;\n' +
+      '}\n\n' +
+      'button {\n' +
+      '  padding: 12px 28px;\n' +
+      '  font: 600 1rem system-ui, sans-serif;\n' +
+      '  color: #4338ca;\n' +
+      '  background: #fff;\n' +
+      '  border: 0;\n' +
+      '  border-radius: 999px;\n' +
+      '  cursor: pointer;\n' +
+      '}',
+    js:
+      "document.getElementById('animateBtn').addEventListener('click', function () {\n" +
+      "  document.querySelector('.box').classList.toggle('animated');\n" +
+      "});"
   };
-  localStorage.setItem('animateItNowCode', JSON.stringify(code));
-}
 
-function autoLoad() {
-  const savedCode = localStorage.getItem('animateItNowCode');
-  if (savedCode) {
-    const code = JSON.parse(savedCode);
-    htmlEditor.value = code.html;
-    cssEditor.value = code.css;
-    jsEditor.value = code.js;
+  var areas = {
+    html: document.getElementById("htmlCode"),
+    css: document.getElementById("cssCode"),
+    js: document.getElementById("jsCode")
+  };
+  var output = document.getElementById("output");
+  var autoRun = document.getElementById("autoRun");
+  var tabs = document.querySelectorAll(".tab");
+  var active = "html";
+  var timer;
+
+  function load() {
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (e) {}
+    Object.keys(areas).forEach(function (k) {
+      areas[k].value = saved && typeof saved[k] === "string" ? saved[k] : STARTER[k];
+    });
   }
-}
 
-// Set up event listeners
-document.addEventListener('DOMContentLoaded', function() {
-  // Load saved code on page load
-  autoLoad();
-  runCode();
-  
-  // Set up auto-save
-  htmlEditor.addEventListener('input', autoSave);
-  cssEditor.addEventListener('input', autoSave);
-  jsEditor.addEventListener('input', autoSave);
-  
-  // Button event listeners
-  document.getElementById("runBtn").addEventListener("click", runCode);
-  document.getElementById("resetBtn").addEventListener("click", resetCode);
-  document.getElementById("refreshBtn").addEventListener("click", runCode);
-  document.getElementById("fullscreenBtn").addEventListener("click", toggleFullscreen);
-  
-  document.querySelectorAll('.copy-btn').forEach(button => {
-    button.addEventListener('click', function() {
-      const target = this.getAttribute('data-target');
-      copyCode(target);
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ html: areas.html.value, css: areas.css.value, js: areas.js.value }));
+    } catch (e) {}
+  }
+
+  function run() {
+    // Escape closing script tags so user code can't break out of the wrapper.
+    var js = areas.js.value.replace(/<\/script/gi, "<\\/script");
+    output.srcdoc =
+      "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>" +
+      areas.css.value +
+      "</style></head><body>" +
+      areas.html.value +
+      "<script>" + js + "<\/script></body></html>";
+  }
+
+  function schedule() {
+    save();
+    if (!autoRun.checked) return;
+    clearTimeout(timer);
+    timer = setTimeout(run, 350);
+  }
+
+  function switchTab(name) {
+    active = name;
+    tabs.forEach(function (t) {
+      var on = t.dataset.tab === name;
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", String(on));
+    });
+    Object.keys(areas).forEach(function (k) { areas[k].hidden = k !== name; });
+    areas[name].focus();
+  }
+
+  tabs.forEach(function (t) { t.addEventListener("click", function () { switchTab(t.dataset.tab); }); });
+
+  Object.keys(areas).forEach(function (k) {
+    areas[k].addEventListener("input", schedule);
+    // Tab key inserts two spaces instead of leaving the editor.
+    areas[k].addEventListener("keydown", function (e) {
+      if (e.key !== "Tab" || e.shiftKey) return;
+      e.preventDefault();
+      var el = e.target, s = el.selectionStart;
+      el.value = el.value.slice(0, s) + "  " + el.value.slice(el.selectionEnd);
+      el.selectionStart = el.selectionEnd = s + 2;
+      schedule();
     });
   });
-  
-  // Navbar scroll effect
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-    document.querySelector(".scroll-indicator").style.width = scrollPercent + "%";
+
+  document.getElementById("runBtn").addEventListener("click", run);
+  document.getElementById("refreshBtn").addEventListener("click", run);
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    if (!window.confirm("Reset all code to the starter example?")) return;
+    Object.keys(areas).forEach(function (k) { areas[k].value = STARTER[k]; });
+    save();
+    run();
   });
 
-});
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function () {
+    var text = areas[active].value;
+    var done = function () {
+      var label = copyBtn.querySelector("span");
+      label.textContent = "Copied!";
+      setTimeout(function () { label.textContent = "Copy"; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+    else { areas[active].select(); document.execCommand("copy"); done(); }
+  });
 
-// 🐛 Debug logging function for development
-function debugLog(message) {
-  // 📝 This is a placeholder for future debugging
-  // console.log(`[Editor Debug] ${message}`);
-}
+  var fsBtn = document.getElementById("fullscreenBtn");
+  fsBtn.addEventListener("click", function () {
+    if (!document.fullscreenElement) output.requestFullscreen && output.requestFullscreen().catch(function () {});
+    else document.exitFullscreen();
+  });
+  document.addEventListener("fullscreenchange", function () {
+    fsBtn.firstElementChild.className = document.fullscreenElement ? "fas fa-compress" : "fas fa-expand";
+  });
 
-// 🧪 Performance monitoring placeholder
-function monitorPerformance() {
-  // 📊 This is a placeholder for future performance monitoring
-  // console.log("Performance metrics:", performance.memory);
-}
-
-// 🧼 Cleanup function for memory management
-function cleanup() {
-  // 🧹 This is a placeholder for future cleanup operations
-  console.log("🧹 Editor cleanup completed");
-}
-
+  load();
+  run();
+})();

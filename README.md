@@ -332,19 +332,28 @@ AnimateItNow/
 │  ├─ README.md
 │
 ├─ Other HTML, CSS, JS
+│  ├─ about.css
 │  ├─ about.html
+│  ├─ auth.css
+│  ├─ auth.js
 │  ├─ blog.html
+│  ├─ community.css
 │  ├─ components.css
 │  ├─ components.html
 │  ├─ components.js
+│  ├─ contact.css
 │  ├─ contact.html
+│  ├─ content.css
+│  ├─ content.js
 │  ├─ contributors.html
+│  ├─ design-system.css
 │  ├─ desktop.ini
 │  ├─ documentation.html
 │  ├─ editor.css
 │  ├─ editor.html
 │  ├─ editor.js
 │  ├─ favicon.png
+│  ├─ feedback.css
 │  ├─ feedback.html
 │  ├─ generate-icons.js
 │  ├─ generator.css
@@ -353,13 +362,10 @@ AnimateItNow/
 │  ├─ glassmorphismstyle.css
 │  ├─ index.css
 │  ├─ index.html
-│  ├─ index.js
 │  ├─ leaderboard.html
+│  ├─ legal.css
 │  ├─ loginpage.html
 │  ├─ manifest.json
-│  ├─ nav.html
-│  ├─ navbar-theme.js
-│  ├─ navbar_script.js
 │  ├─ navbar_styles.css
 │  ├─ opaque_hover.html
 │  ├─ package-lock.json
@@ -370,8 +376,9 @@ AnimateItNow/
 │  ├─ privacy.html
 │  ├─ privacyPolicy.html
 │  ├─ script.js
-│  ├─ signup.css
 │  ├─ signup.html
+│  ├─ site.js
+│  ├─ sitemap.css
 │  ├─ sitemap.html
 │  ├─ styles.css
 │  ├─ support.html
@@ -379,12 +386,17 @@ AnimateItNow/
 │  ├─ templates.html
 │  ├─ templates.js
 │  ├─ test_card_system.html
-│  ├─ theme-manager.js
+│  ├─ tools.css
 │  ├─ update-html-files.js
 │  └─ vercel.json
 ```
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+🎨 Design System
+- `design-system.css` holds the design tokens (colour, type, spacing, elevation), light/dark themes and shared components (buttons, navbar, footer, forms).
+- `site.js` renders the shared navbar and footer on every page, owns the light/dark theme toggle and adds scroll helpers (progress bar, back-to-top, reveal-on-scroll). Add `data-no-nav` or `data-no-footer` to `<body>` to opt a page out.
+- Every page loads `design-system.css` followed by its own small stylesheet.
 
 📱 Browser Compatibility
 - ✅ Chrome 60+

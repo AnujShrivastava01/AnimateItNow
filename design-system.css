@@ -372,7 +372,8 @@ button.btn, a.btn {
   .ds-actions { margin-left: auto; }
   .ds-actions .ds-login, .ds-actions .btn { display: none; }
   .ds-links {
-    position: fixed; inset: var(--header-height) 0 0 0;
+    /* absolute (not fixed): the header's backdrop-filter makes it the containing block */
+    position: absolute; top: 100%; left: 0; right: 0; height: calc(100vh - var(--header-height)); height: calc(100dvh - var(--header-height));
     flex-direction: column; align-items: stretch; gap: 2px;
     margin: 0; padding: 16px 20px 40px;
     background: var(--bg);
@@ -396,6 +397,10 @@ button.btn, a.btn {
 @media (max-width: 1060px) {
   .ds-mobile-cta { display: grid !important; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
   .ds-mobile-cta .btn { display: inline-flex; width: 100%; padding: 0.9rem 1rem; font-size: 0.95rem; }
+}
+@media (max-width: 1060px) {
+  .ds-links > li.ds-mobile-cta > a.btn { width: 100%; justify-content: center; padding: 0.9rem 1rem; font-size: 0.95rem; color: #fff; background: var(--grad-brand); border-radius: var(--radius-full); }
+  .ds-links > li.ds-mobile-cta > a.btn.btn-secondary { color: var(--text); background: var(--surface); border-color: var(--border-strong); }
 }
 body.ds-lock { overflow: hidden; }
 
